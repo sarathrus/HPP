@@ -23,6 +23,37 @@ Global Styles
   50% { transform: translateY(-5px); }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Star shape creation using clip-path */
 .star {
   clip-path: polygon(
@@ -211,14 +242,32 @@ header {
   height: 70px; /* Fixed height for consistency */
 }
 
+.logo-button {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.logo-button:hover {
+  transform: scale(1.05);
+}
+
+.logo-button:focus {
+  outline: none;
+}
+
 .logo-container {
-  max-width: 120px; /* Smaller logo */
-  margin-top: 10px; /* Add margin to lower the logo */
+  max-width: 120px;
+  margin-top: 10px;
 }
 
 .logo {
   width: 100%;
-  max-height: 65px; /* Control the height of the logo */
+  max-height: 65px;
   object-fit: contain;
 }
 
@@ -453,33 +502,6 @@ nav {
 }
 
 /* Make hover stars visible for active items too */
-.nav-menu a.active::after {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 0;
-  background: white;
-  bottom: -3px;
-  left: 20%;
-  box-shadow: 0 0 10px 2px white;
-  opacity: 1;
-  animation: sparkle 1.5s ease-in-out infinite 0.5s;
-  clip-path: polygon(
-    50% 0%, 
-    61% 35%, 
-    98% 35%, 
-    68% 57%, 
-    79% 91%, 
-    50% 70%, 
-    21% 91%, 
-    32% 57%, 
-    2% 35%, 
-    39% 35%
-  );
-}
-
-/* Keep the top hover stars visible when item is active */
 .nav-menu a.active span.sparkle:nth-child(1),
 .nav-menu a.active span.sparkle:nth-child(2) {
   opacity: 1;
@@ -611,17 +633,16 @@ Featured Films Section
 }
 
 .film-card {
-  background-color: rgba(
-    253,
-    230,
-    220,
-    0.1
-  ); /* Light secondary color with opacity */
-  border-radius: 8px;
+  background: rgba(253, 230, 220, 0.1);
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   border: 1px solid var(--accent-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .film-card:hover {
@@ -630,10 +651,30 @@ Featured Films Section
   border-color: var(--heading-color);
 }
 
-.film-card img {
+.film-poster {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 400px;
+  background: rgba(253, 230, 220, 0.05);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--accent-color);
+  margin-top: 1rem;
+}
+
+.film-poster img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.film-poster:empty::before {
+  content: "Movie Poster Coming Soon";
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .film-info {
@@ -770,22 +811,52 @@ Footer
 */
 
 footer {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  padding: 50px 5% 20px;
+  padding: 60px 5% 20px;
+  border-top: 2px solid var(--accent-color);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+footer.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  margin-bottom: 50px;
-  max-width: 1080px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: start; /* Align items to the top */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.footer-contact {
+  padding: 0 15px;
+  margin-left: 0;
+}
+
+.footer-logo {
+  max-width: 400px;
+  justify-self: start;
+}
+
+.footer-logo img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-left: -20px;
+}
+
+.footer-links {
+  justify-self: center;
+}
+
+.footer-social {
+  justify-self: end;
 }
 
 .footer-logo {
@@ -822,8 +893,13 @@ footer {
   color: var(--accent-color);
 }
 
+.footer-contact h4 {
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
 .footer-contact p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--medium-gray);
 }
 
@@ -841,10 +917,12 @@ footer {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: all 0.3s ease;
+  color: var(--secondary-color);
 }
 
 .social-icons a:hover {
   background-color: var(--accent-color);
+  color: black;
 }
 
 .footer-bottom {
@@ -1122,61 +1200,63 @@ Films Page
 }
 
 .upcoming-films {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  padding: 100px 5%;
-  background-color: rgba(22, 14, 68, 0.9); /* Dark blue with slight opacity */
-  text-align: center;
-  border-top: 2px solid var(--accent-color);
+  padding: 4rem 2rem;
+  background-color: var(--primary-color);
 }
 
 .upcoming-films h2 {
-  margin-bottom: 50px;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--heading-color);
 }
 
 .upcoming-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 40px;
-  max-width: 1080px;
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .upcoming-card {
-  background-color: rgba(
-    253,
-    230,
-    220,
-    0.1
-  ); /* Light secondary color with opacity */
-  border-radius: 8px;
+  background: rgba(253, 230, 220, 0.1);
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 600px;
   border: 1px solid var(--accent-color);
 }
 
 .upcoming-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
   border-color: var(--heading-color);
 }
 
 .upcoming-card img {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
 }
 
 .upcoming-info {
-  padding: 20px;
-  text-align: left;
+  padding: 2rem;
 }
 
-.release-date {
+.upcoming-info h3 {
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-info .release-date {
   color: var(--accent-color);
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
+}
+
+.upcoming-info p {
+  color: var(--secondary-color);
+  line-height: 1.6;
 }
 
 /* 
@@ -1432,6 +1512,19 @@ Media Queries
   .newsletter-form input,
   .newsletter-form button {
     width: 100%;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-contact,
+  .footer-logo,
+  .footer-links,
+  .footer-social {
+    margin-left: 0;
+    justify-self: center;
   }
 }
 

@@ -14,19 +14,18 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body class="films-page">
     <header>
       <div class="logo-container">
-        <img
-          src="assets/images/Logo-01[1747].png"
-          alt="Hocus Pocus Pictures Logo"
-          class="logo"
-        />
+        <a href="index.html" class="logo-button">
+          <img
+            src="assets/images/Logo-01[1747].png"
+            alt="Hocus Pocus Pictures Logo"
+            class="logo"
+          />
+        </a>
       </div>
       <nav>
         <div class="menu-btn">
@@ -50,155 +49,48 @@
       </section>
 
       <section class="films-section">
-        <div class="filters">
-          <h2>Filter Films</h2>
-          <div class="filter-options">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="drama">Drama</button>
-            <button class="filter-btn" data-filter="comedy">Comedy</button>
-            <button class="filter-btn" data-filter="fantasy">Fantasy</button>
-            <button class="filter-btn" data-filter="thriller">Thriller</button>
-          </div>
-        </div>
-
         <div class="films-grid">
           <div class="film-card" data-category="fantasy">
             <div class="film-thumbnail">
-              <img src="assets/images/film1.jpg" alt="The Enchanted Forest" />
+              <img src="assets/images/film1.jpg" alt="The Kidnapping" />
               <div class="film-overlay">
-                <a href="films/enchanted-forest.html" class="btn-view"
-                  >View Details</a
-                >
+                <a href="films/enchanted-forest.html" class="btn-view">View Details</a>
               </div>
             </div>
             <div class="film-info">
-              <h3>The Enchanted Forest</h3>
+              <h3>The Kidnapping</h3>
               <p class="film-category">Fantasy | 2022</p>
               <p class="film-description">
-                A magical journey through a forest full of wonders and
-                mysteries.
+                A thrilling tale of mystery and adventure in a world where nothing is as it seems.
               </p>
               <div class="film-actions">
-                <a href="#" class="trailer-link"
-                  ><i class="fas fa-play-circle"></i> Watch Trailer</a
-                >
+                <a href="#" class="trailer-link"><i class="fas fa-play-circle"></i> Watch Trailer</a>
               </div>
+            </div>
+            <div class="film-poster">
+              <img src="assets/images/poster1.jpg" alt="The Kidnapping Movie Poster" />
             </div>
           </div>
 
           <div class="film-card" data-category="thriller">
             <div class="film-thumbnail">
-              <img src="assets/images/film2.jpg" alt="Whispers in the Dark" />
+              <img src="assets/images/film2.jpg" alt="The Visitor" />
               <div class="film-overlay">
                 <a href="films/whispers.html" class="btn-view">View Details</a>
               </div>
             </div>
             <div class="film-info">
-              <h3>Whispers in the Dark</h3>
+              <h3>The Visitor</h3>
               <p class="film-category">Thriller | 2022</p>
               <p class="film-description">
-                A suspenseful tale of secrets and revelations in a small town.
+                A chilling story of unexpected guests and the secrets they bring.
               </p>
               <div class="film-actions">
-                <a href="#" class="trailer-link"
-                  ><i class="fas fa-play-circle"></i> Watch Trailer</a
-                >
+                <a href="#" class="trailer-link"><i class="fas fa-play-circle"></i> Watch Trailer</a>
               </div>
             </div>
-          </div>
-
-          <div class="film-card" data-category="drama">
-            <div class="film-thumbnail">
-              <img src="assets/images/film3.jpg" alt="Beyond the Horizon" />
-              <div class="film-overlay">
-                <a href="films/beyond-horizon.html" class="btn-view"
-                  >View Details</a
-                >
-              </div>
-            </div>
-            <div class="film-info">
-              <h3>Beyond the Horizon</h3>
-              <p class="film-category">Drama | 2021</p>
-              <p class="film-description">
-                An exploration of hope and perseverance in challenging times.
-              </p>
-              <div class="film-actions">
-                <a href="#" class="trailer-link"
-                  ><i class="fas fa-play-circle"></i> Watch Trailer</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="film-card" data-category="comedy">
-            <div class="film-thumbnail">
-              <img src="assets/images/film4.jpg" alt="The Perfect Day" />
-              <div class="film-overlay">
-                <a href="films/perfect-day.html" class="btn-view"
-                  >View Details</a
-                >
-              </div>
-            </div>
-            <div class="film-info">
-              <h3>The Perfect Day</h3>
-              <p class="film-category">Comedy | 2021</p>
-              <p class="film-description">
-                A hilarious sequence of events that unfold during what should
-                have been a perfect day.
-              </p>
-              <div class="film-actions">
-                <a href="#" class="trailer-link"
-                  ><i class="fas fa-play-circle"></i> Watch Trailer</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="film-card" data-category="drama">
-            <div class="film-thumbnail">
-              <img src="assets/images/film5.jpg" alt="The Silent Echo" />
-              <div class="film-overlay">
-                <a href="films/silent-echo.html" class="btn-view"
-                  >View Details</a
-                >
-              </div>
-            </div>
-            <div class="film-info">
-              <h3>The Silent Echo</h3>
-              <p class="film-category">Drama | 2020</p>
-              <p class="film-description">
-                A poignant story about finding one's voice in a world that
-                refuses to listen.
-              </p>
-              <div class="film-actions">
-                <a href="#" class="trailer-link"
-                  ><i class="fas fa-play-circle"></i> Watch Trailer</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="film-card" data-category="fantasy">
-            <div class="film-thumbnail">
-              <img src="assets/images/film6.jpg" alt="Dreamwalker" />
-              <div class="film-overlay">
-                <a href="films/dreamwalker.html" class="btn-view"
-                  >View Details</a
-                >
-              </div>
-            </div>
-            <div class="film-info">
-              <h3>Dreamwalker</h3>
-              <p class="film-category">Fantasy | 2020</p>
-              <p class="film-description">
-                A young woman discovers she can enter other people's dreams,
-                changing their lives forever.
-              </p>
-              <div class="film-actions">
-                <a href="#" class="trailer-link"
-                  ><i class="fas fa-play-circle"></i> Watch Trailer</a
-                >
-              </div>
+            <div class="film-poster">
+              <img src="assets/images/poster2.jpg" alt="The Visitor Movie Poster" />
             </div>
           </div>
         </div>
@@ -208,24 +100,13 @@
         <h2>Upcoming Projects</h2>
         <div class="upcoming-grid">
           <div class="upcoming-card">
-            <img src="assets/images/upcoming1.jpg" alt="Upcoming Film 1" />
+            <img src="assets/images/upcoming-1.jpg" alt="Drawn Out" />
             <div class="upcoming-info">
-              <h3>Echoes of Tomorrow</h3>
-              <p class="release-date">Expected Release: Fall 2023</p>
+              <h3>Drawn Out</h3>
+              <p class="release-date">Expected Release: 2024</p>
               <p>
-                A sci-fi drama exploring the consequences of today's choices on
-                future generations.
-              </p>
-            </div>
-          </div>
-          <div class="upcoming-card">
-            <img src="assets/images/upcoming2.jpg" alt="Upcoming Film 2" />
-            <div class="upcoming-info">
-              <h3>The Last Letter</h3>
-              <p class="release-date">Expected Release: Winter 2023</p>
-              <p>
-                A heartwarming story about reconnecting with the past through
-                unexpected correspondence.
+                A groundbreaking animated feature that pushes the boundaries of
+                storytelling through innovative animation techniques.
               </p>
             </div>
           </div>
@@ -259,14 +140,14 @@
           <h4>Follow Us</h4>
           <div class="social-icons">
             <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
             <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2023 Hocus Pocus Pictures. All rights reserved.</p>
+        <p>&copy; 2025 Hocus Pocus Pictures. All rights reserved.</p>
       </div>
     </footer>
 

@@ -135,4 +135,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Run once on page load
   animateOnScroll();
+
+  // Footer scroll animation
+  function handleFooterAnimation() {
+    const footer = document.querySelector('footer');
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPosition = window.scrollY + windowHeight;
+
+    // Check if we're near the bottom of the page (within 100px)
+    if (scrollPosition >= documentHeight - 100) {
+      footer.classList.add('visible');
+      // Remove the scroll event listener once the footer is visible
+      window.removeEventListener('scroll', handleFooterAnimation);
+    }
+  }
+
+  // Add scroll event listener for footer animation
+  window.addEventListener('scroll', handleFooterAnimation);
+  // Initial check for footer animation
+  handleFooterAnimation();
 });
