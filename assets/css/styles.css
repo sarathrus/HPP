@@ -1,8 +1,43 @@
+@import url("https://use.typekit.net/qag2gqm.css");
+
 /* 
 =========================
 Global Styles
 =========================
 */
+
+/* Adding keyframes for the sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+/* New animation for the pink star - pop in and out without moving */
+@keyframes pop {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Star shape creation using clip-path */
+.star {
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
 
 :root {
   --primary-color: #160e44; /* Dark Blue - Background */
@@ -22,7 +57,7 @@ Global Styles
 }
 
 body {
-  font-family: "Acumin Pro", "DM Sans", sans-serif;
+  font-family: "acumin-pro", sans-serif;
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--primary-color);
@@ -66,7 +101,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Shackleton", "Times New Roman", serif;
+  font-family: "shackleton", serif;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -107,7 +142,7 @@ Buttons
   border: none;
   border-radius: 4px;
   font-weight: 500;
-  font-family: "Shackleton", "Times New Roman", serif;
+  font-family: "shackleton", serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -126,7 +161,7 @@ Buttons
   border: 2px solid var(--accent-color);
   border-radius: 4px;
   font-weight: 500;
-  font-family: "Shackleton", "Times New Roman", serif;
+  font-family: "shackleton", serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -145,7 +180,7 @@ Buttons
   padding: 10px 20px;
   border-radius: 4px;
   font-weight: 500;
-  font-family: "Shackleton", "Times New Roman", serif;
+  font-family: "shackleton", serif;
   transition: all 0.3s ease;
 }
 
@@ -178,6 +213,7 @@ header {
 
 .logo-container {
   max-width: 120px; /* Smaller logo */
+  margin-top: 10px; /* Add margin to lower the logo */
 }
 
 .logo {
@@ -205,21 +241,256 @@ nav {
   position: relative;
   padding-bottom: 5px;
   transition: all 0.3s ease;
+  overflow: visible;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
   color: var(--heading-color);
+  text-shadow: 0 0 8px rgba(237, 71, 138, 0.5);
 }
 
-.nav-menu a.active::after {
+/* Sparkle effects */
+.nav-menu a::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: var(--heading-color);
   bottom: 0;
   left: 0;
+  background: linear-gradient(to right, var(--accent-color), var(--heading-color));
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  box-shadow: 0 0 8px rgba(237, 71, 138, 0.5);
+}
+
+.nav-menu a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Top left sparkle - make it a star */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  top: -10px;
+  left: 10%;
+  opacity: 0;
+  box-shadow: 0 0 10px 2px white;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+.nav-menu a:hover::after {
+  opacity: 1;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+/* Extra sparkles for more magic - make them stars */
+.nav-menu a span.sparkle {
+  position: absolute;
+  pointer-events: none;
+}
+
+.nav-menu a span.sparkle:nth-child(1) {
+  width: 7px;
+  height: 7px;
+  top: -8px;
+  right: 30%;
+  background: var(--accent-color);
+  border-radius: 0;
+  opacity: 0;
+  box-shadow: 0 0 6px 1px var(--accent-color);
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+.nav-menu a:hover span.sparkle:nth-child(1) {
+  opacity: 1;
+  animation: sparkle 2s ease-in-out infinite 0.3s;
+}
+
+.nav-menu a span.sparkle:nth-child(2) {
+  width: 9px;
+  height: 9px;
+  top: -12px;
+  right: 10%;
+  background: var(--heading-color);
+  border-radius: 0;
+  opacity: 0;
+  box-shadow: 0 0 8px 2px var(--heading-color);
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+.nav-menu a:hover span.sparkle:nth-child(2) {
+  opacity: 1;
+  animation: sparkle 2s ease-in-out infinite 0.5s;
+}
+
+.nav-menu a.active {
+  color: var(--heading-color);
+  text-shadow: 0 0 8px rgba(237, 71, 138, 0.5);
+  position: relative;
+}
+
+/* Add a NEW third star to the right */
+.nav-menu a.active span.star-right {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  background: var(--accent-color);
+  bottom: -3px;
+  left: 5%;
+  box-shadow: 0 0 8px 2px var(--accent-color);
+  opacity: 1;
+  animation: sparkle 1.5s ease-in-out infinite;
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+  pointer-events: none;
+}
+
+/* Add a third star animation under the active headings */
+.nav-menu a.active::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 0;
+  background: white;
+  bottom: -3px;
+  left: 20%;
+  box-shadow: 0 0 10px 2px white;
+  opacity: 1;
+  animation: sparkle 1.5s ease-in-out infinite 0.5s;
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+/* Add additional sparkles for active items - make them stars */
+.nav-menu a.active::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  background: var(--heading-color);
+  bottom: -3px;
+  left: 65%;
+  box-shadow: 0 0 8px 2px var(--heading-color);
+  opacity: 1;
+  animation: pop 1.5s ease-in-out 1s infinite;
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+/* Make hover stars visible for active items too */
+.nav-menu a.active::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 0;
+  background: white;
+  bottom: -3px;
+  left: 20%;
+  box-shadow: 0 0 10px 2px white;
+  opacity: 1;
+  animation: sparkle 1.5s ease-in-out infinite 0.5s;
+  clip-path: polygon(
+    50% 0%, 
+    61% 35%, 
+    98% 35%, 
+    68% 57%, 
+    79% 91%, 
+    50% 70%, 
+    21% 91%, 
+    32% 57%, 
+    2% 35%, 
+    39% 35%
+  );
+}
+
+/* Keep the top hover stars visible when item is active */
+.nav-menu a.active span.sparkle:nth-child(1),
+.nav-menu a.active span.sparkle:nth-child(2) {
+  opacity: 1;
+}
+
+.nav-menu a.active span.sparkle:nth-child(1) {
+  animation: sparkle 2s ease-in-out infinite 0.3s;
+}
+
+.nav-menu a.active span.sparkle:nth-child(2) {
+  animation: sparkle 2s ease-in-out infinite 0.7s;
 }
 
 .menu-btn {
@@ -483,7 +754,7 @@ Latest News Section
 .read-more {
   color: var(--heading-color);
   font-weight: 500;
-  font-family: "Shackleton", "Times New Roman", serif;
+  font-family: "shackleton", serif;
   font-style: italic;
   transition: all 0.3s ease;
 }
@@ -514,16 +785,19 @@ footer {
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
+  align-items: start; /* Align items to the top */
 }
 
 .footer-logo {
-  max-width: 120px;
+  max-width: 400px; /* Increased from 350px */
+  justify-self: start; /* Align to the left */
 }
 
 .footer-logo img {
   width: 100%;
-  max-height: 50px;
+  max-height: 200px; /* Increased from 150px */
   object-fit: contain;
+  margin-left: -20px; /* Move slightly to the left */
 }
 
 .footer-links h4,
@@ -834,7 +1108,7 @@ Films Page
   align-items: center;
   color: var(--heading-color);
   font-weight: 500;
-  font-family: "Shackleton", "Times New Roman", serif;
+  font-family: "shackleton", serif;
   font-style: italic;
   transition: all 0.3s ease;
 }
@@ -1188,4 +1462,222 @@ Media Queries
   .upcoming-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* 
+=========================
+Behind the Filmmakers Page
+=========================
+*/
+
+.behind-scenes-intro {
+  padding: 100px 5%;
+  background-color: var(--primary-color);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.behind-scenes-intro h2 {
+  margin-bottom: 30px;
+}
+
+.behind-scenes-intro p {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.behind-scenes-gallery {
+  padding: 80px 5%;
+  background-color: var(--primary-color);
+}
+
+.behind-scenes-gallery h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid var(--accent-color);
+  position: relative;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: var(--heading-color);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery-caption {
+  padding: 20px;
+  background-color: rgba(22, 14, 68, 0.9);
+}
+
+.gallery-caption h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.gallery-caption p {
+  font-size: 0.95rem;
+  color: var(--secondary-color);
+  margin-bottom: 0;
+}
+
+.filmmaker-profiles {
+  padding: 80px 5%;
+  background-color: rgba(22, 14, 68, 0.8);
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.filmmaker-profiles h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  background-color: rgba(253, 230, 220, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid var(--accent-color);
+  text-align: center;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: var(--heading-color);
+}
+
+.profile-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.profile-card h3 {
+  margin: 20px 0 5px;
+  font-size: 1.5rem;
+}
+
+.profile-card .role {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.profile-card .bio {
+  padding: 0 20px 20px;
+  font-size: 0.95rem;
+}
+
+.behind-scenes-stories {
+  padding: 80px 5%;
+  background-color: var(--primary-color);
+}
+
+.behind-scenes-stories h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 40px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.story-card {
+  background-color: rgba(253, 230, 220, 0.1);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: var(--heading-color);
+}
+
+.story-card h3 {
+  margin-bottom: 15px;
+  color: var(--heading-color);
+  font-size: 1.4rem;
+}
+
+.story-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.behind-scenes-intro h2,
+.behind-scenes-gallery h2,
+.filmmaker-profiles h2,
+.behind-scenes-stories h2 {
+  font-family: "shackleton", serif;
+  color: var(--heading-color);
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.gallery-caption h3,
+.profile-card h3,
+.story-card h3 {
+  font-family: "shackleton", serif;
+  color: var(--heading-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.gallery-caption p,
+.profile-card .bio,
+.story-card p {
+  font-family: "acumin-pro", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.profile-card .role {
+  color: var(--accent-color);
+  font-weight: 500;
+  font-family: "acumin-pro", sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
 }
