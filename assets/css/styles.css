@@ -165,60 +165,112 @@ Buttons
 =========================
 */
 
-.btn-primary {
-  display: inline-block;
-  background-color: var(--accent-color);
+/* Buttons */
+.btn-primary,
+.btn-secondary,
+.btn-view,
+.filter-btn,
+.newsletter-form button {
+  position: relative;
+  background: var(--accent-color);
   color: var(--primary-color);
-  padding: 12px 30px;
+  padding: 15px 40px;
   border: none;
   border-radius: 4px;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "shackleton", serif;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(83, 192, 170, 0.3);
+  cursor: pointer;
 }
 
-.btn-primary:hover {
-  background-color: var(--heading-color);
+.btn-primary::before,
+.btn-primary::after,
+.btn-secondary::before,
+.btn-secondary::after,
+.btn-view::before,
+.btn-view::after,
+.filter-btn::before,
+.filter-btn::after,
+.newsletter-form button::before,
+.newsletter-form button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-primary::before,
+.btn-secondary::before,
+.btn-view::before,
+.filter-btn::before,
+.newsletter-form button::before {
+  left: -10px;
+}
+
+.btn-primary::after,
+.btn-secondary::after,
+.btn-view::after,
+.filter-btn::after,
+.newsletter-form button::after {
+  right: -10px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-view:hover,
+.filter-btn:hover,
+.newsletter-form button:hover {
+  background: var(--heading-color);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(237, 71, 138, 0.4);
 }
 
+.btn-primary:hover::before,
+.btn-primary:hover::after,
+.btn-secondary:hover::before,
+.btn-secondary:hover::after,
+.btn-view:hover::before,
+.btn-view:hover::after,
+.filter-btn:hover::before,
+.filter-btn:hover::after,
+.newsletter-form button:hover::before,
+.newsletter-form button:hover::after {
+  background: var(--heading-color);
+}
+
+/* Override specific button styles */
 .btn-secondary {
-  display: inline-block;
-  background-color: transparent;
-  color: var(--accent-color);
-  padding: 10px 25px;
-  border: 2px solid var(--accent-color);
-  border-radius: 4px;
-  font-weight: 500;
-  font-family: "shackleton", serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background-color: var(--accent-color);
+  background: var(--accent-color);
   color: var(--primary-color);
-  transform: translateY(-2px);
 }
 
 .btn-view {
-  display: inline-block;
-  background-color: var(--heading-color);
+  background: var(--heading-color);
   color: var(--secondary-color);
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-weight: 500;
-  font-family: "shackleton", serif;
-  transition: all 0.3s ease;
 }
 
-.btn-view:hover {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  transform: translateY(-2px);
+.filter-btn {
+  background: rgba(253, 230, 220, 0.1);
+  color: var(--secondary-color);
+  border: 1px solid var(--accent-color);
+}
+
+.filter-btn:hover {
+  background: var(--heading-color);
+  color: var(--secondary-color);
+  border-color: var(--heading-color);
+}
+
+.newsletter-form button {
+  background: var(--heading-color);
+  color: var(--secondary-color);
 }
 
 /* 
@@ -1459,7 +1511,7 @@ Media Queries
 
 @media (max-width: 768px) {
   header {
-    padding: 15px 5%;
+    padding: 10px 5%;
   }
 
   .menu-btn {
@@ -1468,16 +1520,17 @@ Media Queries
 
   .nav-menu {
     position: fixed;
-    top: 80px;
+    top: 70px;
     right: -100%;
     width: 250px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     background-color: var(--primary-color);
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 50px;
+    padding-top: 30px;
     transition: all 0.4s ease;
+    z-index: 999;
   }
 
   .nav-menu.active {
@@ -1485,18 +1538,47 @@ Media Queries
   }
 
   .nav-menu li {
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
   }
 
   .hero h1 {
     font-size: 2.5rem;
+    padding: 0 20px;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    padding: 0 20px;
   }
 
   .page-banner {
     height: 40vh;
   }
 
-  .contact-section,
+  .banner-content h1 {
+    font-size: 2.2rem;
+    padding: 0 20px;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 50px 20px;
+  }
+
+  .contact-info,
+  .contact-form-container {
+    padding: 20px;
+  }
+
+  .info-item {
+    margin-bottom: 20px;
+  }
+
+  .social-connect {
+    margin-top: 30px;
+  }
+
   .news-section .news-card {
     flex-direction: column;
   }
@@ -1505,8 +1587,17 @@ Media Queries
     height: 300px;
   }
 
+  .news-content {
+    padding: 20px;
+  }
+
+  .newsletter-section {
+    padding: 50px 20px;
+  }
+
   .newsletter-form {
     flex-direction: column;
+    gap: 15px;
   }
 
   .newsletter-form input,
@@ -1517,14 +1608,103 @@ Media Queries
   .footer-content {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 0 20px;
   }
 
   .footer-contact,
   .footer-logo,
   .footer-links,
   .footer-social {
-    margin-left: 0;
+    margin: 0;
     justify-self: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .film-sections {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .film-section {
+    padding: 0.8rem;
+  }
+
+  .film-section img {
+    height: 300px;
+  }
+
+  .film-section .btn-secondary {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .about-section {
+    padding: 50px 20px;
+  }
+
+  .about-section .about-content {
+    padding: 0 15px;
+  }
+
+  .about-section .about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-section .about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    padding: 0 5px;
+  }
+
+  .about-section .about-image {
+    margin-top: 30px;
+  }
+
+  .about-section .about-image img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .mission-vision {
+    padding: 40px 20px;
+  }
+
+  .mission,
+  .vision {
+    padding: 25px;
+    margin: 0 15px;
+  }
+
+  .mission h3,
+  .vision h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .mission p,
+  .vision p {
+    font-size: 1rem;
+    line-height: 1.8;
+    padding: 0 5px;
   }
 }
 
@@ -1534,7 +1714,7 @@ Media Queries
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   .hero h1 {
@@ -1546,7 +1726,7 @@ Media Queries
   }
 
   .banner-content h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .film-grid,
@@ -1554,6 +1734,54 @@ Media Queries
   .team-grid,
   .upcoming-grid {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .film-card,
+  .news-card,
+  .team-member,
+  .upcoming-card {
+    margin: 0 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .stories-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 15px;
+  }
+
+  .story-card {
+    padding: 20px;
+  }
+
+  .about-section .about-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-section .about-content p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .mission,
+  .vision {
+    padding: 20px;
+  }
+
+  .mission h3,
+  .vision h3 {
+    font-size: 1.3rem;
+  }
+
+  .mission p,
+  .vision p {
+    font-size: 0.95rem;
   }
 }
 
@@ -1773,4 +2001,99 @@ Behind the Filmmakers Page
   font-family: "acumin-pro", sans-serif;
   font-size: 1.1rem;
   margin-bottom: 15px;
+}
+
+/* Film Sections */
+.film-sections {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.film-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 15px;
+  transition: var(--transition);
+}
+
+.film-section:hover {
+  border-color: var(--heading-color);
+  box-shadow: 0 0 15px rgba(83, 192, 170, 0.3);
+}
+
+.film-section img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.film-section img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.film-section .btn-secondary {
+  margin-top: 1rem;
+  position: relative;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  padding: 15px 40px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-family: "shackleton", serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(83, 192, 170, 0.3);
+  font-size: 1.1rem;
+}
+
+.film-section .btn-secondary::before,
+.film-section .btn-secondary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.film-section .btn-secondary::before {
+  left: -10px;
+}
+
+.film-section .btn-secondary::after {
+  right: -10px;
+}
+
+.film-section .btn-secondary:hover {
+  background: var(--heading-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(237, 71, 138, 0.4);
+}
+
+.film-section .btn-secondary:hover::before,
+.film-section .btn-secondary:hover::after {
+  background: var(--heading-color);
+}
+
+@media (max-width: 768px) {
+  .film-sections {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
 }
