@@ -140,7 +140,9 @@ h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--heading-color);
 }
 
 h2 {
@@ -625,11 +627,12 @@ Hero Section
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   color: var(--secondary-color);
   text-align: center;
   position: relative;
+  padding-top: 32vh;
 }
 
 .hero::before {
@@ -650,14 +653,19 @@ Hero Section
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
   color: var(--heading-color);
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero .btn-primary {
+  padding: 20px 50px;
+  font-size: 1.3rem;
 }
 
 /* 
@@ -1103,44 +1111,69 @@ About Page
 }
 
 .team-member {
-  background-color: rgba(
-    253,
-    230,
-    220,
-    0.1
-  ); /* Light secondary color with opacity */
-  border-radius: 8px;
+  background: var(--primary-color);
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid var(--accent-color);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 .team-member:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-  border-color: var(--heading-color);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
-.team-member img {
-  width: 100%;
-  height: 300px;
+.team-member .profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
   object-fit: cover;
+  border: 3px solid var(--accent-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .team-member h3 {
-  margin: 20px 0 5px;
+  color: var(--heading-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.team-member .position {
+.team-member .role {
   color: var(--accent-color);
-  font-weight: 500;
+  font-size: 1rem;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .team-member p {
-  padding: 0 20px 20px;
-  color: var(--secondary-color);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.team-member .social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.team-member .social-links a {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.team-member .social-links a:hover {
+  color: var(--heading-color);
+  transform: translateY(-2px);
 }
 
 /* 
@@ -1542,12 +1575,12 @@ Media Queries
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     padding: 0 20px;
   }
 
   .hero p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 0 20px;
   }
 
@@ -1637,7 +1670,6 @@ Media Queries
   .film-sections {
     grid-template-columns: 1fr;
     padding: 2rem 1rem;
-    gap: 1.5rem;
   }
 
   .film-section {
@@ -1655,15 +1687,19 @@ Media Queries
 
   .about-section {
     padding: 50px 20px;
+    text-align: center;
   }
 
   .about-section .about-content {
     padding: 0 15px;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .about-section .about-content h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+    text-align: center;
   }
 
   .about-section .about-content p {
@@ -1671,10 +1707,13 @@ Media Queries
     line-height: 1.8;
     margin-bottom: 1.2rem;
     padding: 0 5px;
+    text-align: center;
   }
 
   .about-section .about-image {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
   }
 
   .about-section .about-image img {
@@ -1686,18 +1725,21 @@ Media Queries
 
   .mission-vision {
     padding: 40px 20px;
+    text-align: center;
   }
 
   .mission,
   .vision {
     padding: 25px;
     margin: 0 15px;
+    text-align: center;
   }
 
   .mission h3,
   .vision h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .mission p,
@@ -1705,6 +1747,29 @@ Media Queries
     font-size: 1rem;
     line-height: 1.8;
     padding: 0 5px;
+    text-align: center;
+  }
+
+  .team-member {
+    padding: 15px;
+  }
+
+  .team-member .profile-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+
+  .team-member h3 {
+    font-size: 1.2rem;
+  }
+
+  .team-member .role {
+    font-size: 0.9rem;
+  }
+
+  .team-member p {
+    font-size: 0.85rem;
   }
 }
 
@@ -1718,7 +1783,11 @@ Media Queries
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
   }
 
   .page-banner {
@@ -1762,26 +1831,31 @@ Media Queries
 
   .about-section .about-content h2 {
     font-size: 1.8rem;
+    text-align: center;
   }
 
   .about-section .about-content p {
     font-size: 0.95rem;
     line-height: 1.7;
+    text-align: center;
   }
 
   .mission,
   .vision {
     padding: 20px;
+    text-align: center;
   }
 
   .mission h3,
   .vision h3 {
     font-size: 1.3rem;
+    text-align: center;
   }
 
   .mission p,
   .vision p {
     font-size: 0.95rem;
+    text-align: center;
   }
 }
 
