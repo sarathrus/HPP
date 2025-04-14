@@ -117,16 +117,15 @@
         <h2>Meet Our Team</h2>
         <div class="team-grid">
           <div class="team-member">
-            <img src="assets/images/team-member1.jpg" alt="Team Member 1" />
+            <img src="assets/images/Sarah W.jpg" alt="Sarah Woodward" class="profile-image" onclick="openLightbox(this)">
             <h3>Sarah Woodward</h3>
             <p class="position">CEO, Founder, Filmmaker & Actor</p>
             <p>
-              With over 15 years of experience in filmmaking, Sarah leads our
-              creative vision and oversees all productions.
+              Discovering the magic of cinema and storytelling at age 6, Sarah has cultivated a career of over 30 years experience in acting and writing. Recently, she's honed these skills and further expanded her knowledge of producing and directing by studying a BA Film and Television at Bond University. Her past acting training has seen her work with coaches Tony Knight in Australia and Anthony Meindl in Los Angeles. Sarah's first screenplay, 'Hidden Melodies' made the quarter finals of the Final Draft's Big Break Scriptwriting Competition and top 50 in the Historical Genre. Also holding a Master of Criminology degree from Bond, Sarah is determined to bring dynamic stories created by diverse Australian talent on our screens.
             </p>
           </div>
           <div class="team-member">
-            <img src="assets/images/team-member4.jpg" alt="Team Member 4" />
+            <img src="assets/images/Marina.jpg" alt="Marina Cerra" class="profile-image" onclick="openLightbox(this)">
             <h3>Marina Cerra</h3>
             <p class="position">Co-Producer, Head of Casting & Writer </p>
             <p>
@@ -134,7 +133,7 @@
             </p>
           </div>
           <div class="team-member">
-            <img src="assets/images/team-member5.jpg" alt="Team Member 5" />
+            <img src="assets/images/Sarah A_.jpg" alt="Sarah Athalla Rusdi" class="profile-image" onclick="openLightbox(this)">
             <h3>Sarah Athalla Rusdi</h3>
             <p class="position">Head of Social Media</p>
             <p>
@@ -148,7 +147,7 @@
             </p>
           </div>
           <div class="team-member">
-            <img src="assets/images/team-member2.jpg" alt="Team Member 2" />
+            <img src="assets/images/team-member2.jpg" alt="Team Member 2" class="profile-image" onclick="openLightbox(this)"/>
             <h3>Lauren Bond</h3>
             <p class="position">Head of Art Department</p>
             <p>
@@ -157,12 +156,11 @@
             </p>
           </div>
           <div class="team-member">
-            <img src="assets/images/team-member3.jpg" alt="Team Member 3" />
+            <img src="assets/images/Beck.jpg" alt="Beck Bennett" class="profile-image" onclick="openLightbox(this)">
             <h3>Beck Bennett</h3>
             <p class="position">Associate Writer</p>
             <p>
-              Emily brings our stories to life through her exceptional eye for
-              visual storytelling and cinematography.
+              Rebecca loves the visually creative aspect of production design and location scout. She enjoys planning and collecting the props and costumes needed for each scene and ensuring the cast were camera ready. Rebecca has aspirations of working as a screenwriter and production designer, with a passion for seeing her stories and visions turned into magnificent film productions.
             </p>
           </div>
         </div>
@@ -206,6 +204,61 @@
       </div>
     </footer>
 
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="close-btn" onclick="closeLightbox()">&times;</span>
+      <div class="lightbox-controls">
+        <button class="zoom-btn" onclick="zoomIn(event)">+</button>
+        <button class="zoom-btn" onclick="zoomOut(event)">-</button>
+        <button class="reset-btn" onclick="resetZoom(event)">Reset</button>
+      </div>
+      <img class="lightbox-content" id="lightbox-img">
+    </div>
+
     <script src="assets/js/script.js"></script>
+    <script>
+      let currentZoom = 1;
+      const maxZoom = 3;
+      const minZoom = 0.5;
+
+      function openLightbox(img) {
+        document.getElementById('lightbox').style.display = 'flex';
+        document.getElementById('lightbox-img').src = img.src;
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function zoomIn(event) {
+        event.stopPropagation();
+        if (currentZoom < maxZoom) {
+          currentZoom += 0.5;
+          updateZoom();
+        }
+      }
+
+      function zoomOut(event) {
+        event.stopPropagation();
+        if (currentZoom > minZoom) {
+          currentZoom -= 0.5;
+          updateZoom();
+        }
+      }
+
+      function resetZoom(event) {
+        event.stopPropagation();
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function updateZoom() {
+        const img = document.getElementById('lightbox-img');
+        img.style.transform = `scale(${currentZoom})`;
+      }
+    </script>
   </body>
 </html>

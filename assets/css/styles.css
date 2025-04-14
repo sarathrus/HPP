@@ -282,7 +282,7 @@ Header
 */
 
 header {
-  background-color: var(--primary-color);
+  background-color: var(--heading-color);
   color: var(--secondary-color);
   position: fixed;
   width: 100%;
@@ -321,8 +321,9 @@ header {
 
 .logo {
   width: 100%;
-  max-height: 65px;
+  max-height: 100px;
   object-fit: contain;
+  content: url('../images/gold logo.png');
 }
 
 nav {
@@ -349,8 +350,8 @@ nav {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-  color: var(--heading-color);
-  text-shadow: 0 0 8px rgba(237, 71, 138, 0.5);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 /* Sparkle effects */
@@ -361,11 +362,11 @@ nav {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to right, var(--accent-color), var(--heading-color));
+  background: linear-gradient(to right, var(--accent-color), #FFD700);
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-  box-shadow: 0 0 8px rgba(237, 71, 138, 0.5);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 .nav-menu a:hover::before {
@@ -379,11 +380,11 @@ nav {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: white;
+  background: #FFD700;
   top: -10px;
   left: 10%;
   opacity: 0;
-  box-shadow: 0 0 10px 2px white;
+  box-shadow: 0 0 10px 2px #FFD700;
   transition: all 0.3s ease;
   pointer-events: none;
   clip-path: polygon(
@@ -444,10 +445,10 @@ nav {
   height: 9px;
   top: -12px;
   right: 10%;
-  background: var(--heading-color);
+  background: #FFD700;
   border-radius: 0;
   opacity: 0;
-  box-shadow: 0 0 8px 2px var(--heading-color);
+  box-shadow: 0 0 8px 2px #FFD700;
   clip-path: polygon(
     50% 0%, 
     61% 35%, 
@@ -468,8 +469,8 @@ nav {
 }
 
 .nav-menu a.active {
-  color: var(--heading-color);
-  text-shadow: 0 0 8px rgba(237, 71, 138, 0.5);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
   position: relative;
 }
 
@@ -535,10 +536,10 @@ nav {
   width: 8px;
   height: 8px;
   border-radius: 0;
-  background: var(--heading-color);
+  background: #FFD700;
   bottom: -3px;
   left: 65%;
-  box-shadow: 0 0 8px 2px var(--heading-color);
+  box-shadow: 0 0 8px 2px #FFD700;
   opacity: 1;
   animation: pop 1.5s ease-in-out 1s infinite;
   clip-path: polygon(
@@ -627,7 +628,8 @@ Hero Section
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   color: var(--secondary-color);
   text-align: center;
@@ -642,12 +644,36 @@ Hero Section
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(22, 14, 68, 0.8); /* Dark blue with opacity */
+  background-color: rgba(22, 14, 68, 0.8);
+  z-index: 1;
+}
+
+.hero-logo {
+  width: 300px;
+  height: 300px;
+  background: rgba(253, 230, 220, 0.1);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+}
+
+.hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  content: url('../images/gold logo.png');
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
   padding: 20px;
 }
@@ -1047,7 +1073,7 @@ Footer
 */
 
 footer {
-  background-color: var(--primary-color);
+  background-color: #000000;
   color: var(--secondary-color);
   padding: 60px 5% 20px;
   border-top: 2px solid var(--accent-color);
@@ -1078,13 +1104,15 @@ footer.visible {
 .footer-logo {
   max-width: 400px;
   justify-self: start;
+  margin-top: -2rem;
 }
 
 .footer-logo img {
   width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   object-fit: contain;
   margin-left: -20px;
+  content: url('../images/gold logo.png');
 }
 
 .footer-links {
@@ -1102,7 +1130,7 @@ footer.visible {
 
 .footer-logo img {
   width: 100%;
-  max-height: 200px; /* Increased from 150px */
+  max-height: 300px; /* Increased from 150px */
   object-fit: contain;
   margin-left: -20px; /* Move slightly to the left */
 }
@@ -1110,7 +1138,7 @@ footer.visible {
 .footer-links h4,
 .footer-contact h4,
 .footer-social h4 {
-  color: var(--secondary-color);
+  color: var(--heading-color);
   margin-bottom: 20px;
 }
 
@@ -1130,7 +1158,7 @@ footer.visible {
 }
 
 .footer-contact h4 {
-  color: var(--secondary-color);
+  color: var(--heading-color);
   margin-bottom: 15px;
 }
 
@@ -1224,16 +1252,35 @@ About Page
 
 .about-section {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 4rem 2rem;
-  margin-bottom: 4rem;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 4rem;
+  margin-bottom: 6rem;
+  gap: 4rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-content {
   flex: 1;
-  padding-right: 2rem;
+  padding: 0 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .about-image {
@@ -1246,13 +1293,14 @@ About Page
 .about-image img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .mission-vision {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 4rem;
@@ -1260,6 +1308,7 @@ About Page
   background: linear-gradient(135deg, var(--primary-color) 0%, rgba(22, 14, 68, 0.95) 100%);
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .mission-vision::before {
@@ -1285,6 +1334,8 @@ About Page
   z-index: 1;
   transition: all 0.4s ease;
   backdrop-filter: blur(10px);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .mission:hover,
@@ -1296,12 +1347,12 @@ About Page
 
 .mission h3,
 .vision h3 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   color: var(--heading-color);
   text-align: center;
   position: relative;
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .mission h3::after,
@@ -1319,7 +1370,7 @@ About Page
 
 .mission p,
 .vision p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   line-height: 1.8;
   color: var(--text-color);
   text-align: center;
@@ -1348,7 +1399,7 @@ About Page
 }
 
 .team-section {
-  padding: 100px 5%;
+  padding: 120px 5%;
   text-align: center;
   background-color: var(--primary-color);
 }
@@ -1359,22 +1410,22 @@ About Page
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 40px;
-  max-width: 1080px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 50px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .team-member {
   background: var(--primary-color);
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
   border: 2px solid var(--accent-color);
 }
 
@@ -1385,35 +1436,39 @@ About Page
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  margin-bottom: 20px;
-  border: 3px solid var(--accent-color);
-  box-shadow: var(--shadow-sm);
+  margin-bottom: 25px;
+  border: 4px solid var(--accent-color);
+  box-shadow: var(--shadow-md);
   background-color: #f5f5f5;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .team-member h3 {
   color: var(--heading-color);
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
   text-align: center;
 }
 
-.team-member .role {
+.team-member .position {
   color: var(--accent-color);
-  font-size: 1rem;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .team-member p {
   color: var(--text-color);
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.8;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .team-member .social-links {
@@ -1944,12 +1999,21 @@ Media Queries
 
   .about-section {
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 4rem 2rem;
+    gap: 3rem;
   }
 
   .about-content {
     padding-right: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
   }
 
   .about-image {
@@ -1959,8 +2023,8 @@ Media Queries
   .about-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   }
 
   .mission-vision {
@@ -1997,7 +2061,7 @@ Media Queries
     font-size: 1.2rem;
   }
 
-  .team-member .role {
+  .team-member .position {
     font-size: 0.9rem;
   }
 
@@ -2121,198 +2185,194 @@ Behind the Filmmakers Page
 }
 
 .behind-scenes-gallery {
-  padding: 80px 5%;
-  background-color: var(--primary-color);
+  padding: 6rem 5%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, rgba(22, 14, 68, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .behind-scenes-gallery h2 {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 4rem;
+  color: var(--heading-color);
+  font-size: 2.5rem;
+  position: relative;
 }
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 30px;
-  max-width: 1080px;
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .gallery-item {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid var(--accent-color);
   position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--accent-color);
 }
 
 .gallery-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 40px rgba(83, 192, 170, 0.4);
   border-color: var(--heading-color);
 }
 
-.gallery-item img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-
-.gallery-caption {
-  padding: 20px;
-  background-color: rgba(22, 14, 68, 0.9);
-}
-
-.gallery-caption h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.gallery-caption p {
-  font-size: 0.95rem;
-  color: var(--secondary-color);
-  margin-bottom: 0;
-}
-
-.filmmaker-profiles {
-  padding: 80px 5%;
-  background-color: rgba(22, 14, 68, 0.8);
-  border-top: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-}
-
-.filmmaker-profiles h2 {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.profiles-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.profile-card {
-  background-color: rgba(253, 230, 220, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  border: 1px solid var(--accent-color);
-  text-align: center;
-}
-
-.profile-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-  border-color: var(--heading-color);
-}
-
-.profile-card img {
+.gallery-image {
   width: 100%;
   height: 300px;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.profile-card h3 {
-  margin: 20px 0 5px;
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+}
+
+.gallery-caption h3 {
+  color: var(--heading-color);
   font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.profile-card .role {
-  color: var(--accent-color);
-  font-weight: 500;
+.gallery-caption p {
+  color: var(--text-color);
   font-size: 1.1rem;
-  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
-.profile-card .bio {
-  padding: 0 20px 20px;
-  font-size: 0.95rem;
+/* Lightbox Styles for Gallery */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.behind-scenes-stories {
-  padding: 80px 5%;
-  background-color: var(--primary-color);
-}
-
-.behind-scenes-stories h2 {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.stories-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 40px;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.story-card {
-  background-color: rgba(253, 230, 220, 0.1);
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
   border-radius: 8px;
-  padding: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.lightbox-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1002;
+}
+
+.zoom-btn, .reset-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
   transition: all 0.3s ease;
 }
 
-.story-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-  border-color: var(--heading-color);
+.zoom-btn:hover, .reset-btn:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
 }
 
-.story-card h3 {
-  margin-bottom: 15px;
-  color: var(--heading-color);
-  font-size: 1.4rem;
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
 }
 
-.story-card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.behind-scenes-intro h2,
-.behind-scenes-gallery h2,
-.filmmaker-profiles h2,
-.behind-scenes-stories h2 {
-  font-family: "shackleton", serif;
-  color: var(--heading-color);
-  margin-bottom: 50px;
-  text-align: center;
-  font-size: 2.2rem;
-}
-
-.gallery-caption h3,
-.profile-card h3,
-.story-card h3 {
-  font-family: "shackleton", serif;
-  color: var(--heading-color);
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-.gallery-caption p,
-.profile-card .bio,
-.story-card p {
-  font-family: "acumin-pro", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.profile-card .role {
+.close-btn:hover {
   color: var(--accent-color);
-  font-weight: 500;
-  font-family: "acumin-pro", sans-serif;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gallery-image {
+    height: 250px;
+  }
+
+  .gallery-caption {
+    padding: 1.5rem;
+  }
+
+  .gallery-caption h3 {
+    font-size: 1.3rem;
+  }
+
+  .gallery-caption p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-image {
+    height: 200px;
+  }
+
+  .gallery-caption {
+    padding: 1rem;
+  }
+
+  .gallery-caption h3 {
+    font-size: 1.2rem;
+  }
+
+  .gallery-caption p {
+    font-size: 0.9rem;
+  }
 }
 
 /* Film Sections */
@@ -2429,6 +2489,15 @@ Behind the Filmmakers Page
 .film-video {
     padding: 4rem 2rem;
     margin: 4rem 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.film-video h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--heading-color);
 }
 
 .video-container {
@@ -2436,10 +2505,29 @@ Behind the Filmmakers Page
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    align-items: center;
 }
 
 .video-wrapper {
-    margin: 0.25rem 0;
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--accent-color);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Back to Films Button Spacing */
@@ -2447,4 +2535,81 @@ Behind the Filmmakers Page
     margin: 4rem 0;
     padding: 2rem;
     text-align: center;
+}
+
+/* Enhanced Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.lightbox-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1002;
+}
+
+.zoom-btn, .reset-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.zoom-btn:hover, .reset-btn:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: var(--accent-color);
+}
+
+/* Add click cursor to profile images */
+.profile-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
 }
