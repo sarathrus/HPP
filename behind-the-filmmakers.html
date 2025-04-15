@@ -16,30 +16,39 @@
 </head>
 <body>
     <header>
+        <div class="logo-container">
+            <a href="index.html" class="logo-button">
+                <img
+                    src="assets/images/Logo-01[1747].png"
+                    alt="Hocus Pocus Pictures Logo"
+                    class="logo"
+                />
+            </a>
+        </div>
         <nav>
-            <div class="logo">
-                <a href="index.html">HPP Productions</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="films.html">Films</a></li>
-                <li><a href="behind-the-filmmakers.html">Behind the Filmmakers</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
             <div class="menu-btn">
                 <div class="menu-btn__burger"></div>
             </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+                <li><a href="about.html">About Us<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+                <li><a href="films.html">Films<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+                <li><a href="behind-the-filmmakers.html" class="active">Behind the Filmmakers<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+                <li><a href="contact.html">Contact<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="filmmaker-hero">
-            <div class="hero-content">
-                <h1>Behind the Filmmakers</h1>
-                <p>Meet the creative minds behind our stories</p>
+    <div class="full-screen-bg" style="background-image: url('assets/images/bg.jpg');">
+        <div class="banner-content">
+            <h1>Behind the Filmmakers<span class="star-left"></span><span class="star-right"></span><span class="star-top"></span><span class="star-bottom"></span><span class="star-top-left"></span><span class="star-top-right"></span><span class="star-bottom-left"></span><span class="star-bottom-right"></span></h1>
+            <div class="scroll-indicator" onclick="scrollToContent()">
+                <i class="fas fa-chevron-down"></i>
             </div>
-        </section>
+        </div>
+    </div>
 
+    <main>
         <section class="filmmaker-intro">
             <div class="intro-content">
                 <h2>Welcome to Our World</h2>
@@ -52,24 +61,24 @@
             <h2>On Set Moments</h2>
             <div class="moments-grid">
                 <div class="moment-card">
-                    <img src="assets/images/on-set-1.jpg" alt="Director on set">
+                    <img src="assets/images/Lauren.jpg" alt="Lauren Bond">
                     <div class="moment-info">
-                        <h3>Directing The Kidnapping</h3>
-                        <p>A glimpse into the creative process behind our latest film</p>
+                        <h3>Lauren Bond</h3>
+                        <p>Producer - Bringing stories to life with precision and passion</p>
                     </div>
                 </div>
                 <div class="moment-card">
-                    <img src="assets/images/on-set-2.jpg" alt="Camera setup">
+                    <img src="assets/images/Rebecca.jpg" alt="Rebecca Bond">
                     <div class="moment-info">
-                        <h3>Behind the Camera</h3>
-                        <p>Capturing the perfect shot for The Visitor</p>
+                        <h3>Rebecca Bond</h3>
+                        <p>Director - Crafting visual narratives that captivate audiences</p>
                     </div>
                 </div>
                 <div class="moment-card">
-                    <img src="assets/images/on-set-3.jpg" alt="Team collaboration">
+                    <img src="assets/images/Sara A.jpg" alt="Sarah Athalla Rusdi">
                     <div class="moment-info">
-                        <h3>Team Collaboration</h3>
-                        <p>Working together to bring stories to life</p>
+                        <h3>Sarah Athalla Rusdi</h3>
+                        <p>Writer - Creating compelling stories that resonate</p>
                     </div>
                 </div>
             </div>
@@ -87,45 +96,45 @@
             <h2>Photo Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="assets/images/gallery1.jpg" alt="Behind the scenes photo 1" class="gallery-image">
+                    <img src="assets/images/Lauren.jpg" alt="Lauren Bond" class="gallery-image">
                     <div class="gallery-caption">
-                        <h3>On Set</h3>
-                        <p>Capturing the perfect shot during production</p>
+                        <h3>Lauren Bond</h3>
+                        <p>Producer</p>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="assets/images/gallery2.jpg" alt="Behind the scenes photo 2" class="gallery-image">
+                    <img src="assets/images/Rebecca.jpg" alt="Rebecca Bond" class="gallery-image">
                     <div class="gallery-caption">
-                        <h3>Team Collaboration</h3>
-                        <p>Our crew working together to create magic</p>
+                        <h3>Rebecca Bond</h3>
+                        <p>Director</p>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="assets/images/gallery3.jpg" alt="Behind the scenes photo 3" class="gallery-image">
+                    <img src="assets/images/Sara A.jpg" alt="Sarah Athalla Rusdi" class="gallery-image">
                     <div class="gallery-caption">
-                        <h3>Production Setup</h3>
-                        <p>Setting up for the perfect scene</p>
+                        <h3>Sarah Athalla Rusdi</h3>
+                        <p>Writer</p>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="assets/images/gallery4.jpg" alt="Behind the scenes photo 4" class="gallery-image">
+                    <img src="assets/images/Lauren.jpg" alt="Lauren Bond" class="gallery-image">
                     <div class="gallery-caption">
-                        <h3>Creative Process</h3>
-                        <p>Brainstorming and planning our next project</p>
+                        <h3>Lauren Bond</h3>
+                        <p>On Set</p>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="assets/images/gallery5.jpg" alt="Behind the scenes photo 5" class="gallery-image">
+                    <img src="assets/images/Rebecca.jpg" alt="Rebecca Bond" class="gallery-image">
                     <div class="gallery-caption">
-                        <h3>Equipment Setup</h3>
-                        <p>Preparing our gear for the shoot</p>
+                        <h3>Rebecca Bond</h3>
+                        <p>Directing</p>
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox(this)">
-                    <img src="assets/images/gallery6.jpg" alt="Behind the scenes photo 6" class="gallery-image">
+                    <img src="assets/images/Sara A.jpg" alt="Sarah Athalla Rusdi" class="gallery-image">
                     <div class="gallery-caption">
-                        <h3>Team Meeting</h3>
-                        <p>Discussing the day's shoot</p>
+                        <h3>Sarah Athalla Rusdi</h3>
+                        <p>Writing</p>
                     </div>
                 </div>
             </div>
@@ -150,31 +159,38 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>HPP Productions</h3>
-                <p>Creating compelling stories through film</p>
+            <div class="footer-logo">
+                <img
+                    src="assets/images/Logo-01[1747].png"
+                    alt="Hocus Pocus Pictures Logo"
+                />
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="films.html">Films</a></li>
                     <li><a href="behind-the-filmmakers.html">Behind the Filmmakers</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h3>Connect With Us</h3>
-                <div class="social-links">
-                    <a href="https://facebook.com/hppproductions" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://twitter.com/hppproductions" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com/hppproductions" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://vimeo.com/hppproductions" target="_blank"><i class="fab fa-vimeo"></i></a>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: weare@hocuspocuspictures.com</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1AacR6XuWE/?mibextid=wwXIfr" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/hocuspocuspictures?igsh=MXZjOTRiZWpkNHBoag==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@hocuspocuspictures?si=i9UN4g3R9ZgYJSe4" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@hocuspocuspictures?_t=ZS-8v9uWAxzEDi&_r=1" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 HPP Productions. All rights reserved.</p>
+            <p>&copy; 2025 Hocus Pocus Pictures. All rights reserved.</p>
         </div>
     </footer>
 
@@ -230,6 +246,11 @@
         function updateZoom() {
             const img = document.getElementById('lightbox-img');
             img.style.transform = `scale(${currentZoom})`;
+        }
+
+        function scrollToContent() {
+            const mainContent = document.querySelector('main');
+            mainContent.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>

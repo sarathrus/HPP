@@ -54,13 +54,16 @@
       </nav>
     </header>
 
-    <main>
-      <section class="page-banner">
-        <div class="banner-content">
-          <h1>About Us</h1>
+    <div class="full-screen-bg">
+      <div class="banner-content">
+        <h1>About Us</h1>
+        <div class="scroll-indicator" onclick="scrollToContent()">
+          <i class="fas fa-chevron-down"></i>
         </div>
-      </section>
+      </div>
+    </div>
 
+    <main>
       <section class="about-section">
         <div class="about-content">
           <h2>Our Story</h2>
@@ -147,7 +150,7 @@
             </p>
           </div>
           <div class="team-member">
-            <img src="assets/images/team-member2.jpg" alt="Team Member 2" class="profile-image" onclick="openLightbox(this)"/>
+            <img src="assets/images/Lauren.jpg" alt="Lauren Bond" class="profile-image" onclick="openLightbox(this)">
             <h3>Lauren Bond</h3>
             <p class="position">Head of Art Department</p>
             <p>
@@ -219,6 +222,11 @@
       let currentZoom = 1;
       const maxZoom = 3;
       const minZoom = 0.5;
+
+      function scrollToContent() {
+        const mainContent = document.querySelector('main');
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      }
 
       function openLightbox(img) {
         document.getElementById('lightbox').style.display = 'flex';

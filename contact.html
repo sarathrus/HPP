@@ -58,13 +58,16 @@
       </nav>
     </header>
 
-    <main>
-      <section class="page-banner">
-        <div class="banner-content">
-          <h1>Contact Us</h1>
+    <div class="full-screen-bg">
+      <div class="banner-content">
+        <h1>Contact Us</h1>
+        <div class="scroll-indicator" onclick="scrollToContent()">
+          <i class="fas fa-chevron-down"></i>
         </div>
-      </section>
+      </div>
+    </div>
 
+    <main>
       <section class="contact-section">
         <div class="contact-info">
           <h2>Get in Touch</h2>
@@ -162,5 +165,11 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+      function scrollToContent() {
+        const mainContent = document.querySelector('main');
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
   </body>
 </html>

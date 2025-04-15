@@ -48,11 +48,21 @@
           <li><a href="index.html" class="active">Home<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
           <li><a href="about.html">About Us<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
           <li><a href="films.html">Films<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
-          <li><a href="behind-filmmakers.html">Behind the Filmmakers<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+          <li><a href="behind-the-filmmakers.html">Behind the Filmmakers<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
           <li><a href="contact.html">Contact<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
         </ul>
       </nav>
     </header>
+
+    <div class="full-screen-bg">
+      <div class="banner-content">
+        <h1>Bringing Magic to the Screen<span class="star-left"></span><span class="star-right"></span><span class="star-top"></span><span class="star-bottom"></span><span class="star-top-left"></span><span class="star-top-right"></span><span class="star-bottom-left"></span><span class="star-bottom-right"></span></h1>
+        <p>An independent film production company specalising in original storytelling.<span class="star-left"></span><span class="star-right"></span><span class="star-top"></span><span class="star-bottom"></span></p>
+        <div class="scroll-indicator" onclick="scrollToContent()">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
 
     <main>
       <section class="hero">
@@ -74,7 +84,7 @@
         </div>
         <div class="film-section">
           <img src="assets/images/film3.jpg" alt="Beyond the Horizon">
-          <a href="behind-filmmakers.html" class="btn-secondary">Behind the Filmmakers</a>
+          <a href="behind-the-filmmakers.html" class="btn-secondary">Behind the Filmmakers</a>
         </div>
         <div class="film-section">
           <img src="assets/images/film4.jpg" alt="Echoes of Tomorrow">
@@ -97,7 +107,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="films.html">Films</a></li>
-            <li><a href="behind-filmmakers.html">Behind the Filmmakers</a></li>
+            <li><a href="behind-the-filmmakers.html">Behind the Filmmakers</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -121,5 +131,11 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+      function scrollToContent() {
+        const mainContent = document.querySelector('main');
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
   </body>
 </html>

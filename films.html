@@ -54,18 +54,21 @@
       </nav>
     </header>
 
-    <main>
-      <section class="page-banner">
-        <div class="banner-content">
-          <h1>Our Films</h1>
+    <div class="full-screen-bg">
+      <div class="banner-content">
+        <h1>Our Films</h1>
+        <div class="scroll-indicator" onclick="scrollToContent()">
+          <i class="fas fa-chevron-down"></i>
         </div>
-      </section>
+      </div>
+    </div>
 
+    <main>
       <section class="films-section">
         <div class="films-grid">
           <div class="film-card" data-category="fantasy">
             <div class="film-thumbnail">
-              <img src="assets/images/film1.jpg" alt="The Kidnapping" />
+              <img src="assets/images/The_Kidnapping_Poster.jpg" alt="The Kidnapping" />
               <div class="film-overlay">
                 <a href="films/the-kidnapping.html" class="btn-view">View Details</a>
               </div>
@@ -81,13 +84,13 @@
               </div>
             </div>
             <div class="film-poster">
-              <img src="assets/images/poster1.jpg" alt="The Kidnapping Movie Poster" />
+              <img src="assets/images/The_Kidnapping_Poster.jpg" alt="The Kidnapping Movie Poster" />
             </div>
           </div>
 
           <div class="film-card" data-category="thriller">
             <div class="film-thumbnail">
-              <img src="assets/images/film2.jpg" alt="The Visitor" />
+              <img src="assets/images/The_Visitor_Poster.jpg" alt="The Visitor" />
               <div class="film-overlay">
                 <a href="films/the-visitor.html" class="btn-view">View Details</a>
               </div>
@@ -103,20 +106,19 @@
               </div>
             </div>
             <div class="film-poster">
-              <img src="assets/images/poster2.jpg" alt="The Visitor Movie Poster" />
+              <img src="assets/images/The_Visitor_Poster.jpg" alt="The Visitor Movie Poster" />
             </div>
           </div>
         </div>
       </section>
 
       <section class="upcoming-films">
-        <h2>Upcoming Projects</h2>
+        <h2>Upcoming Project</h2>
         <div class="upcoming-grid">
           <div class="upcoming-card">
-            <img src="assets/images/upcoming-1.jpg" alt="Drawn Out" />
             <div class="upcoming-info">
               <h3>Drawn Out</h3>
-              <p class="release-date">Expected Release: 2024</p>
+              <p class="release-date">Expected Release: 2025</p>
               <p>
                 A groundbreaking animated feature that pushes the boundaries of
                 storytelling through innovative animation techniques.
@@ -165,5 +167,11 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+      function scrollToContent() {
+        const mainContent = document.querySelector('main');
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      }
+    </script>
   </body>
 </html>
