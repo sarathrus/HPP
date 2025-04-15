@@ -155,4 +155,31 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('scroll', handleFooterAnimation);
   // Initial check for footer animation
   handleFooterAnimation();
+
+  // Team section scroll animation
+  const teamSection = document.querySelector('.team-section');
+  const teamMembers = document.querySelectorAll('.team-member');
+  
+  // Add delay to each team member
+  teamMembers.forEach((member, index) => {
+    member.style.setProperty('--delay', index);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        if (entry.target.classList.contains('team-section')) {
+          // Animate team members when section becomes visible
+          teamMembers.forEach(member => {
+            member.classList.add('visible');
+          });
+        }
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  observer.observe(teamSection);
 });
