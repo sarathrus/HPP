@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- This website was created with the assistance of AI technology -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn about Hocus Pocus Pictures - our mission, vision, and the talented team behind our independent film productions.">
-    <meta name="keywords" content="about Hocus Pocus Pictures, film production team, independent film company, film makers, film production mission">
+    <meta name="description" content="Learn about Hocus Pocus Pictures - our story, mission, and vision. Discover what drives our passion for creating unique and captivating short films.">
+    <meta name="keywords" content="Hocus Pocus Pictures, about us, film production, short films, film company, film studio, independent films">
     <meta name="author" content="Hocus Pocus Pictures">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="About Us - Hocus Pocus Pictures">
-    <meta property="og:description" content="Learn about Hocus Pocus Pictures - our mission, vision, and the talented team behind our independent film productions.">
-    <meta property="og:image" content="assets/images/page-banner.jpg">
+    <meta property="og:description" content="Learn about Hocus Pocus Pictures - our story, mission, and vision. Discover what drives our passion for creating unique and captivating short films.">
+    <meta property="og:image" content="../assets/images/about-hero.jpg">
     <meta property="og:url" content="https://hocuspocuspictures.com/about">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About Us - Hocus Pocus Pictures">
-    <meta name="twitter:description" content="Learn about Hocus Pocus Pictures - our mission, vision, and the talented team behind our independent film productions.">
-    <meta name="twitter:image" content="assets/images/page-banner.jpg">
+    <meta name="twitter:description" content="Learn about Hocus Pocus Pictures - our story, mission, and vision. Discover what drives our passion for creating unique and captivating short films.">
+    <meta name="twitter:image" content="../assets/images/about-hero.jpg">
     <title>About Us - Hocus Pocus Pictures</title>
     <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/qag2gqm.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,7 +29,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/jpg" href="assets/images/gold logo.jpg">
+    <link rel="icon" type="image/jpg" href="../assets/images/gold logo.jpg">
   </head>
   <body class="about-page">
     <header>
@@ -69,6 +70,7 @@
           <span class="star-center-left"></span>
           <span class="star-center-right"></span>
         </h1>
+        <p>Discover our story and passion for filmmaking</p>
         <div class="scroll-indicator" onclick="scrollToContent()">
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -87,7 +89,12 @@
         <h2>Our Story Video</h2>
         <div class="video-container">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/your-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/_MRkn0ecy8c?si=LFTZTPl4nlZch-7S"
+              title="Our Story Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
       </section>
@@ -247,6 +254,25 @@
         const img = document.getElementById('lightbox-img');
         img.style.transform = `scale(${currentZoom})`;
       }
+
+      // Scroll animation observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      // Observe sections
+      document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('.about-content, .about-image, .our-story-video, .video-wrapper');
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+      });
     </script>
   </body>
 </html>

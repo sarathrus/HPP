@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- This website was created with the assistance of AI technology -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore our collection of independent short films. Watch trailers, behind-the-scenes content, and learn about our upcoming productions.">
-    <meta name="keywords" content="short films, film trailers, independent films, film collection, Hocus Pocus Pictures films">
+    <meta name="description" content="Explore our collection of short films at Hocus Pocus Pictures. Watch trailers, read about our projects, and discover our unique storytelling style.">
+    <meta name="keywords" content="Hocus Pocus Pictures films, short films, film collection, film trailers, independent films, fantasy films, thriller films">
     <meta name="author" content="Hocus Pocus Pictures">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Our Films - Hocus Pocus Pictures">
-    <meta property="og:description" content="Explore our collection of independent short films. Watch trailers, behind-the-scenes content, and learn about our upcoming productions.">
-    <meta property="og:image" content="assets/images/page-banner.jpg">
+    <meta property="og:description" content="Explore our collection of short films at Hocus Pocus Pictures. Watch trailers, read about our projects, and discover our unique storytelling style.">
+    <meta property="og:image" content="../assets/images/films-hero.jpg">
     <meta property="og:url" content="https://hocuspocuspictures.com/films">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Our Films - Hocus Pocus Pictures">
-    <meta name="twitter:description" content="Explore our collection of independent short films. Watch trailers, behind-the-scenes content, and learn about our upcoming productions.">
-    <meta name="twitter:image" content="assets/images/page-banner.jpg">
+    <meta name="twitter:description" content="Explore our collection of short films at Hocus Pocus Pictures. Watch trailers, read about our projects, and discover our unique storytelling style.">
+    <meta name="twitter:image" content="../assets/images/films-hero.jpg">
     <title>Our Films - Hocus Pocus Pictures</title>
     <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/qag2gqm.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,7 +29,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/jpg" href="assets/images/gold logo.jpg">
+    <link rel="icon" type="image/jpg" href="../assets/images/gold logo.jpg">
   </head>
   <body class="films-page">
     <header>
@@ -69,6 +70,7 @@
           <span class="star-center-left"></span>
           <span class="star-center-right"></span>
         </h1>
+        <p>Explore our collection of captivating short films</p>
         <div class="scroll-indicator" onclick="scrollToContent()">
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -96,16 +98,26 @@
           <div class="upcoming-card">
             <div class="upcoming-info">
               <h3>Drawn Out</h3>
+              <p>Comedy</p>
               <p class="release-date">Expected Release: 2025</p>
               <p>
-                A groundbreaking animated feature that pushes the boundaries of
-                storytelling through innovative animation techniques.
+                Cartoon characters are all Riley draws. On the brink of being kicked out of arts school, she's given one final chance to save her career. With her lecturer out to prove a point, Riley is forced into an impossible portrait, where no cartoons are allowed.
               </p>
             </div>
           </div>
         </div>
       </section>
     </main>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="close-btn" onclick="closeLightbox()">&times;</span>
+      <div class="lightbox-controls">
+        <button class="zoom-btn" onclick="zoomIn(event)">+</button>
+        <button class="zoom-btn" onclick="zoomOut(event)">-</button>
+        <button class="reset-btn" onclick="resetZoom(event)">Reset</button>
+      </div>
+      <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <footer>
       <div class="footer-content">
@@ -149,6 +161,76 @@
       function scrollToContent() {
         const mainContent = document.querySelector('main');
         mainContent.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Scroll animation observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      // Observe film cards
+      document.addEventListener('DOMContentLoaded', function() {
+        const filmCards = document.querySelectorAll('.film-card');
+        filmCards.forEach(card => {
+          observer.observe(card);
+        });
+
+        const posters = document.querySelectorAll('.film-poster');
+        posters.forEach(poster => {
+          poster.addEventListener('click', function() {
+            openLightbox(this);
+          });
+        });
+      });
+
+      let currentZoom = 1;
+      const maxZoom = 3;
+      const minZoom = 0.5;
+
+      function openLightbox(img) {
+        document.getElementById('lightbox').style.display = 'flex';
+        document.getElementById('lightbox-img').src = img.src;
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function zoomIn(event) {
+        event.stopPropagation();
+        if (currentZoom < maxZoom) {
+          currentZoom += 0.5;
+          updateZoom();
+        }
+      }
+
+      function zoomOut(event) {
+        event.stopPropagation();
+        if (currentZoom > minZoom) {
+          currentZoom -= 0.5;
+          updateZoom();
+        }
+      }
+
+      function resetZoom(event) {
+        event.stopPropagation();
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function updateZoom() {
+        const img = document.getElementById('lightbox-img');
+        img.style.transform = `scale(${currentZoom})`;
       }
     </script>
   </body>

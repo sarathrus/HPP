@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- This website was created with the assistance of AI technology -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="The Visitor - A chilling thriller short film by Hocus Pocus Pictures. Watch the trailer and learn more about this suspenseful story of unexpected guests.">
@@ -28,6 +29,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="../assets/images/gold logo.jpg">
   </head>
   <body class="film-detail-page">
     <header>
@@ -45,11 +47,11 @@
           <div class="menu-btn__burger"></div>
         </div>
         <ul class="nav-menu">
-          <li><a href="../index.html">Home<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
-          <li><a href="../about.html">About Us<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
-          <li><a href="../films.html" class="active">Films<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
-          <li><a href="../behind-the-filmmakers.html">Behind the Filmmakers<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
-          <li><a href="../contact.html">Contact<span class="sparkle"></span><span class="sparkle"></span><span class="star-right"></span></a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../films.html" class="active">Films</a></li>
+          <li><a href="../behind-the-filmmakers.html">Behind the Filmmakers</a></li>
+          <li><a href="../contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -58,33 +60,20 @@
       <section class="film-hero">
         <div class="hero-content">
           <h1>The Visitor</h1>
-          <p class="film-meta">Fantasy | 2022</p>
+          <p class="film-meta" style="color: white;">Fantasy | 2022</p>
         </div>
       </section>
 
       <section class="film-details">
         <div class="film-container">
           <div class="film-poster-large">
-            <img src="../assets/images/the-visitor-poster.jpg" alt="The Visitor Poster" />
+            <img src="../assets/images/The_Visitor_Poster.jpg" alt="The Visitor Poster" onclick="openLightbox(this)" style="cursor: pointer;" />
           </div>
           <div class="film-info-detail">
-            <h2>About the Short</h2>
-            <p class="film-description">
-              In this intimate short film, a reclusive writer's life is turned upside down when a mysterious visitor arrives at their doorstep. What begins as an unwelcome interruption becomes a journey of self-discovery and unexpected connection.
+            <p class="film-description" style="text-align: center;">
+              After escaping the Easter Bunny's clutches, a couple are visited by Santa Claus in retaliation for the kidnapping of his best friend.
             </p>
             <div class="film-specs">
-              <h3>Film Details</h3>
-              <ul>
-                <li><strong>Director:</strong> Emily Chen</li>
-                <li><strong>Writer:</strong> David Wilson</li>
-                <li><strong>Producer:</strong> HPP Productions</li>
-                <li><strong>Starring:</strong> Rachel Adams, James Miller</li>
-                <li><strong>Runtime:</strong> 12 minutes</li>
-                <li><strong>Release Date:</strong> 2023</li>
-              </ul>
-            </div>
-            <div class="film-actions">
-              <a href="https://youtu.be/umwvGLuJGb4?si=pIi05PStpGtEW-j1" class="btn-primary" target="_blank">Watch on YouTube</a>
             </div>
           </div>
         </div>
@@ -94,14 +83,15 @@
         <div class="video-container">
           <div class="video-wrapper">
             <iframe 
-              width="560" 
-              height="315" 
               src="https://www.youtube.com/embed/umwvGLuJGb4?si=pIi05PStpGtEW-j1" 
               title="The Visitor - Short Film" 
               frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen>
             </iframe>
+          </div>
+          <div class="film-actions">
+            <a href="https://youtu.be/umwvGLuJGb4?si=pIi05PStpGtEW-j1" class="btn-primary" target="_blank">Watch on YouTube</a>
           </div>
         </div>
       </section>
@@ -110,6 +100,16 @@
         <a href="../films.html" class="btn-secondary">Back to Films</a>
       </div>
     </main>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="close-btn" onclick="closeLightbox()">&times;</span>
+      <div class="lightbox-controls">
+        <button class="zoom-btn" onclick="zoomIn(event)">+</button>
+        <button class="zoom-btn" onclick="zoomOut(event)">-</button>
+        <button class="reset-btn" onclick="resetZoom(event)">Reset</button>
+      </div>
+      <img class="lightbox-content" id="lightbox-img">
+    </div>
 
     <footer>
       <div class="footer-content">
@@ -149,5 +149,50 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
+    <script>
+      let currentZoom = 1;
+      const maxZoom = 3;
+      const minZoom = 0.5;
+
+      function openLightbox(img) {
+        document.getElementById('lightbox').style.display = 'flex';
+        document.getElementById('lightbox-img').src = img.src;
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function zoomIn(event) {
+        event.stopPropagation();
+        if (currentZoom < maxZoom) {
+          currentZoom += 0.5;
+          updateZoom();
+        }
+      }
+
+      function zoomOut(event) {
+        event.stopPropagation();
+        if (currentZoom > minZoom) {
+          currentZoom -= 0.5;
+          updateZoom();
+        }
+      }
+
+      function resetZoom(event) {
+        event.stopPropagation();
+        currentZoom = 1;
+        updateZoom();
+      }
+
+      function updateZoom() {
+        const img = document.getElementById('lightbox-img');
+        img.style.transform = `scale(${currentZoom})`;
+      }
+    </script>
   </body>
 </html> 
