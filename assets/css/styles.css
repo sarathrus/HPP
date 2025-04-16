@@ -2734,107 +2734,53 @@ Behind the Filmmakers Page
 }
 
 .email-section {
-  margin-bottom: 4rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 3rem;
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.email-section:hover {
-  border-color: var(--heading-color);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3rem;
 }
 
 .email-section h3 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: var(--heading-color);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .email-section p {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   color: var(--accent-color);
   margin-bottom: 0;
 }
 
 .social-connect {
-  margin-bottom: 4rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 3rem;
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.social-connect:hover {
-  border-color: var(--heading-color);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 3rem;
 }
 
 .social-connect h3 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: var(--heading-color);
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 3rem;
-  margin-bottom: 1rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .social-icons a {
   color: var(--accent-color);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
   color: var(--heading-color);
-  transform: translateY(-5px);
-}
-
-@media (max-width: 768px) {
-  .email-section {
-    padding: 2rem;
-  }
-  
-  .email-section h3 {
-    font-size: 2rem;
-  }
-  
-  .email-section p {
-    font-size: 1.5rem;
-  }
-  
-  .social-connect {
-    padding: 2rem;
-  }
-  
-  .social-connect h3 {
-    font-size: 2rem;
-  }
-  
-  .social-icons {
-    gap: 2rem;
-  }
-  
-  .social-icons a {
-    font-size: 2rem;
-  }
+  transform: translateY(-3px);
 }
 
 .contact-form {
-  margin-top: 3rem;
+  margin: 3rem 0;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   padding: 2rem;
@@ -2858,6 +2804,10 @@ Behind the Filmmakers Page
     font-size: 2.5rem;
   }
   
+  .contact-info p {
+    font-size: 1.1rem;
+  }
+  
   .contact-form {
     padding: 1rem;
   }
@@ -2871,7 +2821,7 @@ Behind the Filmmakers Page
   }
   
   .social-icons a {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 }
 
