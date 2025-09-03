@@ -2961,11 +2961,11 @@ Behind the Filmmakers Page
 .films-section {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  margin-left: -5%;
+  margin-left: -8%;
 }
 
 .film-card {
@@ -3065,8 +3065,11 @@ Behind the Filmmakers Page
   }
 
   .logo-container {
-    max-width: 100px;
+    max-width: 140px;
     margin: 0 auto;
+  }
+  .logo {
+    max-height: 120px;
   }
 
   .menu-btn {
@@ -3213,7 +3216,10 @@ Behind the Filmmakers Page
 /* Small Mobile Devices */
 @media (max-width: 480px) {
   .logo-container {
-    max-width: 80px;
+    max-width: 120px;
+  }
+  .logo {
+    max-height: 110px;
   }
 
   .banner-content h1 {
@@ -3450,5 +3456,90 @@ Behind the Filmmakers Page
 
   .team-member p {
     font-size: 0.9rem;
+  }
+}
+
+/* Final mobile refinements: centering and proportional sizing */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll from fixed widths */
+  .film-section {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* Ensure hero/banner decorative stars don't overflow headings */
+  .banner-content h1 span[class^="star"],
+  .hero-content h1 span[class^="star"],
+  .hero-content p span[class^="star"] {
+    display: none;
+  }
+
+  /* Keep section images proportional and centered */
+  .section-image {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Film posters in cards scale nicely */
+  .film-poster {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Make large CTAs fit small screens */
+  .btn-secondary,
+  .btn-primary {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* Footer alignment fixes */
+  .footer-contact {
+    margin-left: 0;
+    padding: 0 0.5rem;
+  }
+
+  .footer-logo {
+    margin-top: 0;
+    max-width: 160px;
+  }
+
+  .footer-logo img {
+    margin-left: 0;
+    max-height: 160px;
+  }
+
+  .footer-content {
+    justify-items: center;
+  }
+
+  /* Meet the Team: ensure perfect centering on mobile */
+  .team-section {
+    margin-left: 0;
+    width: 100%;
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 80px 5%;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .team-member {
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
