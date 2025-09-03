@@ -3409,6 +3409,33 @@ Behind the Filmmakers Page
 
 /* Small Mobile Devices */
 @media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 0 8px;
+  }
+  
+  /* Extra small typography */
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+  
+  .banner-content p {
+    font-size: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  /* Footer adjustments */
   .footer-content {
     gap: 2rem;
   }
@@ -3438,29 +3465,303 @@ Behind the Filmmakers Page
 
   /* Team Member Adjustments for Small Screens */
   .team-member {
-    padding: 1.5rem;
+    padding: 1.2rem;
+    max-width: 280px;
   }
 
   .profile-image {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
 
   .team-member h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .team-member .position {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .team-member p {
     font-size: 0.9rem;
   }
+  
+  /* Button adjustments */
+  .btn-secondary,
+  .btn-primary {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Fix "Behind the Filmmakers" button for small screens */
+  .btn-secondary {
+    white-space: normal;
+    line-height: 1.3;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  /* Gallery adjustments */
+  .gallery-image {
+    height: 200px;
+  }
+  
+  /* About section adjustments */
+  .about-section {
+    padding: 2rem 1rem;
+  }
+  
+  .about-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+  }
+  
+  /* Mission/Vision adjustments */
+  .mission, .vision {
+    padding: 1.5rem;
+  }
+  
+  .mission h3, .vision h3 {
+    font-size: 1.5rem;
+  }
+  
+  .mission p, .vision p {
+    font-size: 1rem;
+  }
+  
+  /* Contact page small mobile fixes */
+  .contact-section {
+    padding: 2rem 0.5rem;
+  }
+  
+  .contact-info {
+    padding: 0.5rem;
+  }
+  
+  .contact-info h2 {
+    font-size: 1.8rem;
+  }
+  
+  .email-section {
+    padding: 1rem;
+  }
+  
+  .email-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .email-section p {
+    font-size: 1rem;
+  }
+  
+  .social-connect {
+    padding: 1rem;
+  }
+  
+  .social-connect h3 {
+    font-size: 1.5rem;
+  }
+  
+  .social-icons a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .contact-form {
+    padding: 0.5rem;
+  }
+  
+  .contact-form iframe {
+    height: 700px !important;
+  }
+  
+  /* Behind the filmmakers - Drawn Out underline fix for small screens */
+  .behind-scenes-intro h2::after {
+    width: 150px;
+  }
 }
 
-/* Final mobile refinements: centering and proportional sizing */
+/* Extra small devices (landscape phones) */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 5px;
+  }
+  
+  .banner-content h1 {
+    font-size: 1.8rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .team-member {
+    padding: 1rem;
+    max-width: 260px;
+  }
+  
+  .profile-image {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .btn-secondary,
+  .btn-primary {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  /* Fix "Behind the Filmmakers" button for extra small screens */
+  .btn-secondary {
+    white-space: normal;
+    line-height: 1.1;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+  
+  /* Contact page extra small mobile fixes */
+  .contact-section {
+    padding: 1.5rem 0.25rem;
+  }
+  
+  .contact-info h2 {
+    font-size: 1.6rem;
+  }
+  
+  .email-section {
+    padding: 0.75rem;
+  }
+  
+  .email-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .email-section p {
+    font-size: 0.9rem;
+  }
+  
+  .social-connect {
+    padding: 0.75rem;
+  }
+  
+  .social-connect h3 {
+    font-size: 1.3rem;
+  }
+  
+  .social-icons a {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .contact-form {
+    padding: 0.25rem;
+  }
+  
+  .contact-form iframe {
+    height: 600px !important;
+  }
+  
+  /* Behind the filmmakers - Drawn Out underline fix for extra small screens */
+  .behind-scenes-intro h2::after {
+    width: 120px;
+  }
+}
+
+/* Comprehensive responsive design for all screen sizes */
+@media (max-width: 1200px) {
+  /* Large tablets and small laptops */
+  .container {
+    width: 95%;
+    padding: 0 15px;
+  }
+  
+  .film-sections {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 1rem;
+  }
+  
+  .section-image {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .team-member {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Tablets */
+  .banner-content h1 {
+    font-size: 3.5rem;
+  }
+  
+  .banner-content p {
+    font-size: 1.3rem;
+  }
+  
+  .about-content h2 {
+    font-size: 2.8rem;
+  }
+  
+  .mission-vision {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Mobile phones and small tablets */
+  .container {
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  /* Typography scaling */
+  .banner-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  
+  .banner-content p {
+    font-size: 1.1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
   /* Prevent horizontal scroll from fixed widths */
   .film-section {
     min-width: 0;
@@ -3495,6 +3796,17 @@ Behind the Filmmakers Page
   .btn-primary {
     width: 100%;
     max-width: 420px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  /* Fix "Behind the Filmmakers" button for mobile screens */
+  .btn-secondary {
+    white-space: normal;
+    line-height: 1.4;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 1rem;
   }
 
   /* Footer alignment fixes */
@@ -3523,7 +3835,7 @@ Behind the Filmmakers Page
     width: 100%;
     opacity: 1 !important;
     transform: none !important;
-    padding: 80px 5%;
+    padding: 60px 5%;
   }
 
   .team-grid {
@@ -3534,6 +3846,7 @@ Behind the Filmmakers Page
     margin-right: auto;
     padding: 0 1rem;
     width: 100%;
+    gap: 2rem;
   }
 
   .team-member {
@@ -3541,5 +3854,105 @@ Behind the Filmmakers Page
     margin-right: auto;
     opacity: 1 !important;
     transform: none !important;
+    width: 100%;
+    max-width: 300px;
+    padding: 1.5rem;
+  }
+  
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  /* Gallery adjustments */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gallery-image {
+    height: 250px;
+  }
+  
+  /* Mission/Vision adjustments */
+  .mission, .vision {
+    padding: 2rem;
+  }
+  
+  /* About section adjustments */
+  .about-section {
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .about-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .about-content p {
+    font-size: 1.1rem;
+  }
+  
+  /* Contact page mobile fixes */
+  .contact-section {
+    padding: 3rem 1rem;
+  }
+  
+  .contact-info {
+    padding: 1rem;
+  }
+  
+  .contact-info h2 {
+    font-size: 2rem;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+  }
+  
+  .email-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .email-section h3 {
+    font-size: 1.8rem;
+  }
+  
+  .email-section p {
+    font-size: 1.2rem;
+    word-break: break-all;
+  }
+  
+  .social-connect {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .social-connect h3 {
+    font-size: 1.8rem;
+  }
+  
+  .social-icons {
+    gap: 1.5rem;
+  }
+  
+  .social-icons a {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+  
+  .contact-form {
+    padding: 1rem;
+  }
+  
+  .contact-form iframe {
+    height: 800px !important;
+  }
+  
+  /* Behind the filmmakers - Drawn Out underline fix */
+  .behind-scenes-intro h2::after {
+    width: 200px;
   }
 }
